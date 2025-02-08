@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const taskRouter = require('./task');
 const app = express();
 const { sql } = require('@vercel/postgres');
 
@@ -107,6 +108,8 @@ app.get('/allUsers', async (req, res) => {
 	}
 });
 
-app.listen(3333, () => console.log('Server ready on port 3000.'));
+app.use('/task', taskRouter);
+
+app.listen(3333, () => console.log('Server ready on port 3333.'));
 
 module.exports = app;
