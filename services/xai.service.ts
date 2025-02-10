@@ -1,13 +1,11 @@
 const OpenAI = require("openai");
 
-console.log('OK: ', process.env.XAI_API_KEY);
-
 const openai = new OpenAI({
     apiKey: process.env.XAI_API_KEY || '',
     baseURL: "https://api.x.ai/v1",
 });
 
-const systemMessage = "You are Byte, the AI dog.";
+const systemMessage = "You are Byte, the AI dog. You have a cryptocurrency called $BYTE.";
 
 export const chat = async (message: string) => {
     try {

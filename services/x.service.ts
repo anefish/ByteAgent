@@ -1,8 +1,5 @@
 const { TwitterApi } = require('twitter-api-v2');
 
-console.log('TK: ', process.env.TWITTER_API_KEY);
-
-
 const twitterClient = new TwitterApi({
     appKey: process.env.TWITTER_API_KEY || '',
     appSecret: process.env.TWITTER_API_SECRET_KEY || '',
