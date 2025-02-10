@@ -1,13 +1,25 @@
 const { Router } = require('express');
 const router = Router();
 
-const { postTweet } = require('../services/x.service');
+const { chat } = require('../services/xai.service');
+const { tweet } = require('../services/x.service');
 
 router.get('/', async (req, res) => {
-	const result = await postTweet('Hello World');
-	res.send(result);
+	const userMessage = req.query.message;
+	if (!userMessage) {
+		res.send('No message provided');
+		return;
+	}
 
-	// res.send('Hello World');
+	const chatResult = await chat(userMessage);
+
+	if (chatResult) {
+		// const tweetResult = await tweet(chatResult);
+		// res.send(tweetResult);
+		res.send(chatResult);
+	} else {
+		res.send('Chat failed');
+	}
 });
 
 module.exports = router;
