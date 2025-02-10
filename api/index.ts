@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-const taskRouter = require('./task');
+const byteRouter = require('./byte');
 const app = express();
 const { sql } = require('@vercel/postgres');
 
@@ -108,7 +108,7 @@ app.get('/allUsers', async (req, res) => {
 	}
 });
 
-app.use('/task', taskRouter);
+app.use('/byte', byteRouter);
 
 app.listen(3333, () => console.log('Server ready on port 3333.'));
 
