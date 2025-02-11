@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 	const chatResult = await chat(userMessage);
 
 	if (chatResult && chatResult.content) {
-		const tweetResult = await tweet(chatResult);
+		const tweetResult = await tweet(chatResult.content);
 		res.send(tweetResult);
 		// res.send(chatResult.content);
 	} else {
