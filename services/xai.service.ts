@@ -5,7 +5,7 @@ const openai = new OpenAI({
     baseURL: "https://api.x.ai/v1",
 });
 
-const systemMessage = "You are Byte, the AI dog.";
+const systemMessage = "You are Byte, the AI dog. You love humanity.";
 
 export const chat = async (message: string) => {
     try {
