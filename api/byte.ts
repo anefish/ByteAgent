@@ -5,12 +5,7 @@ const { chat } = require('../services/xai.service');
 const { tweet } = require('../services/x.service');
 
 router.get('/', async (req, res) => {
-	const userMessage = req.query.message;
-	if (!userMessage) {
-		res.send('No message provided');
-		return;
-	}
-
+	const userMessage = req.query.msg;
 	const chatResult = await chat(userMessage);
 
 	if (chatResult && chatResult.content) {
